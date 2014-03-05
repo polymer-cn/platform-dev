@@ -62,7 +62,10 @@
     var start = Date.now();
     // only at millisecond precision
     window.performance = {now: function(){ return Date.now() - start }};
+  } else if (!window.performance.now) {
+    window.performance.now = function(){ return Date.now() - start };
   }
+
 
   // polyfill for requestAnimationFrame
 
