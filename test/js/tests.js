@@ -19,6 +19,7 @@ htmlSuite('integration', function() {
   htmlTest('html/template-repeat-wrappers.html');
   htmlTest('html/ce-import.html');
   htmlTest('html/ce-import.html?shadow');
+  htmlTest('html/ce-upgrade-order.html');
 });
 
 htmlSuite('URL Loader', function() {
@@ -34,8 +35,9 @@ htmlSuite('styling', function() {
   htmlTest('html/styling/polyfill-rule.html');
   htmlTest('html/styling/colon-host.html');
   htmlTest('html/styling/colon-host.html?shadow&register');
-  htmlTest('html/styling/combinators.html');
   htmlTest('html/styling/combinators.html?shadow&register');
+  htmlTest('html/styling/combinators-shadow.html');
+  htmlTest('html/styling/combinators-shadow.html?shadow&register');
   htmlTest('html/styling/before-content.html');
   htmlTest('html/styling/before-content.html?shadow&register');
   htmlTest('html/styling/before-content.html');
