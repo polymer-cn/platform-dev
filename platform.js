@@ -64,17 +64,11 @@ function processFlags(flags) {
         'src/loader.js',
         'src/styleloader.js',
 
-        // TODO(sjmiles): pointergestures.js loads pointerevents, but
-        // the build.json does not
-        '../PointerGestures/pointergestures.js',
-
         // TODO(sjmiles): polymer-expressions.js does not load dependencies, but
         // the build.json does
         '../observe-js/src/observe.js',
         '../NodeBind/src/NodeBind.js',
         '../TemplateBinding/src/TemplateBinding.js',
-        '../polymer-expressions/third_party/esprima/esprima.js',
-        '../polymer-expressions/src/polymer-expressions.js',
         'src/patches-mdv.js'
       ]
     );

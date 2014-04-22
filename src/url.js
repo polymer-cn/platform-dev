@@ -56,10 +56,15 @@ var urlResolver = {
     url = url || node.ownerDocument.baseURI;
     URL_ATTRS.forEach(function(v) {
       var attr = node.attributes[v];
-      if (attr && attr.value &&
-         (attr.value.search(URL_TEMPLATE_SEARCH) < 0)) {
-        var urlPath = resolveRelativeUrl(url, attr.value);
-        attr.value = urlPath;
+      var value = attr && attr.value;
+      var replacement;
+      if (value && value.search(URL_TEMPLATE_SEARCH) < 0) {
+        if (v === 'style') {
+          replacement = replaceUrlsInCssText(value, url, CSS_URL_REGEXP);
+        } else {
+          replacement = resolveRelativeUrl(url, value);
+        }
+        attr.value = replacement;
       }
     });
   }
@@ -67,7 +72,7 @@ var urlResolver = {
 
 var CSS_URL_REGEXP = /(url\()([^)]*)(\))/g;
 var CSS_IMPORT_REGEXP = /(@import[\s]+(?!url\())([^;]*)(;)/g;
-var URL_ATTRS = ['href', 'src', 'action'];
+var URL_ATTRS = ['href', 'src', 'action', 'style'];
 var URL_ATTRS_SELECTOR = '[' + URL_ATTRS.join('],[') + ']';
 var URL_TEMPLATE_SEARCH = '{{.*}}';
 
@@ -85,7 +90,7 @@ function resolveRelativeUrl(baseUrl, url) {
 }
 
 function makeDocumentRelPath(url) {
-  var root = document.baseURI;
+  var root = document.location;
   var u = new URL(url, root);
   if (u.host === root.host && u.port === root.port &&
       u.protocol === root.protocol) {

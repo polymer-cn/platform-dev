@@ -1,4 +1,5 @@
 [
+  "build/boot.js",
   "../WeakMap/weakmap.js",
   "../observe-js/src/observe.js",
   "build/if-poly.js",
@@ -25,9 +26,7 @@
   "src/loader.js",
   "src/styleloader.js",
 
-  "../PointerEvents/build.json",
-  "../PointerGestures/build.json",
+  "../TemplateBinding/build.json",
 
-  "../polymer-expressions/build.json",
   "src/patches-mdv.js"
 ]

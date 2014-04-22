@@ -15,14 +15,13 @@ htmlSuite('integration', function() {
   htmlTest('html/web-components.html');
   htmlTest('html/smoke.html');
   htmlTest('html/smoke.html?shadow&register');
-  htmlTest('html/mdv-shadow.html');
-  htmlTest('html/template-repeat-wrappers.html');
   htmlTest('html/ce-import.html');
   htmlTest('html/ce-import.html?shadow');
   htmlTest('html/ce-upgrade-order.html');
 });
 
 htmlSuite('URL Loader', function() {
+  htmlTest('html/url.html');
   htmlTest('html/loader-deduplicate.html');
 });
 
